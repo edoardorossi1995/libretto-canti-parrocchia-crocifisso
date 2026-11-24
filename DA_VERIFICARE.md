@@ -16,7 +16,6 @@ Quando un brano è a posto, togliere la sua riga da questa tabella.
 | Canto (riga elenco) | Motivo |
 |---|---|
 | Vieni Signore in mezzo a noi (7) | Non trovato in `Canti Coro`. |
-| Verrai Signore (9) | Non trovato in `Canti Coro`. |
 | Stillate o cieli dall'alto (10) | Non trovato in `Canti Coro`. |
 | Vasi rotti (16) | Non trovato in `Canti Coro`. |
 | Tu mi segui (27) | Non trovato in `Canti Coro`. |
