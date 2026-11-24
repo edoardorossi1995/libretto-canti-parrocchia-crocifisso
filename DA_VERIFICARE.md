@@ -8,15 +8,8 @@ Quando un brano è a posto, togliere la sua riga da questa tabella.
 | Canto | File | Cosa controllare | Fonte usata |
 |---|---|---|---|
 | Resonet in laudibus | `canti/natale.tex` | Nella fonte le parole latine sono attaccate: spazi ricostruiti, "conscio" corretto in "concio". | LibrettoAccordi.pdf (N1) |
-| Abbà misericordia | `canti/quaresima_pasqua.tex` | Autore: l'elenco dice Buttazzo, il libretto accordi RnS (usato). Struttura strofe/ritornello ricostruita. | LibrettoAccordi.pdf (O14) |
-| Grida di vittoria | `canti/quaresima_pasqua.tex` | Nella fonte le strofe sono su due colonne intrecciate: ordine delle righe ricostruito. | LibrettoAccordi.pdf (D2) |
 | Gloria (Balduzzi, "Gloria, gloria, gloria a Dio nei cieli") | `canti/gloria.tex` | Finale a due voci intrecciate: la 3ª strofa è ricostruita come una voce sola. | LibrettoAccordi.pdf (C10) |
 | Agnus Dei (Balduzzi) | `canti/pace.tex` | Due voci sovrapposte: reso come ritornello "Dona nobis pacem" + invocazione x2. | LibrettoAccordi.pdf (I1) |
-| Lodate Dio | `canti/finale.tex` | Le tre strofe "Ti ringraziamo…" nella fonte sono parlate, non cantate. | LibrettoAccordi.pdf (A12) |
-| Il cantico dei redenti | `canti/salmi.tex` | Nel foglio la 3ª strofa è tagliata a fondo pagina: inseriti solo ritornello e strofe 1–2. | `4 - Salmi/Il cantico dei redenti.pdf` |
-| Lodi all'Altissimo (Frisina) | `canti/ingresso.tex` | Partitura a più voci: testo ricostruito dalla voce principale, divisione in strofe arbitraria. | `18 - Frisian/lodi all altissimo.pdf` |
-| Canoni di Taizé (Adoramus te, Bonum est confidere, Christe lux mundi, Confitemini, Crucem tuam, Gloria, Il Signore è la mia forza, In manus tuas, Jubilate Deo, Laudate Dominum, Magnificat, Misericordias Domini, Nada te turbe / Nulla ti turbi, Oculi nostri, Ubi caritas, Veni Sancte Spiritus) | `canti/canoni.tex` | Testi scritti a memoria, nessuna fonte in `Canti Coro`. | – |
-| En mi Getsemaní (E. Meana) | `canti/adorazione.tex` | Tre fonti discordanti (testo dell'utente, Laraland, foglio accordi): tenuta la lezione di maggioranza. Restano da decidere: "Dame comprender" / "Hazme comprender"; "Dame serte fiel" / "Hazme serte fiel"; "mi raíz" / "mis raíces"; "elegir tu querer y no el mío" / "no hacer mi querer sino el Tuyo"; "sobre mis inseguridades" / "por sobre mis seguridades". | testo dell'utente, Laraland, foglio accordi |
 
 ## Brani dell'elenco non ancora inseriti
 
