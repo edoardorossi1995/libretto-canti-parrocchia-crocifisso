@@ -17,7 +17,6 @@ Quando un brano è a posto, togliere la sua riga da questa tabella.
 |---|---|
 | Vieni Signore in mezzo a noi (7) | Non trovato in `Canti Coro`. |
 | Stillate o cieli dall'alto (10) | Non trovato in `Canti Coro`. |
-| Vasi rotti (16) | Non trovato in `Canti Coro`. |
 | Tu mi segui (27) | Non trovato in `Canti Coro`. |
 | Tabor (33) | Non trovato in `Canti Coro`. |
 | Su questo altare (35) | Non trovato in `Canti Coro`. |
