@@ -1,0 +1,8 @@
+% Impagina build/libretto.pdf (A5) come libretto su fogli A4 orizzontali.
+% Stampare fronte-retro, capovolgendo sul lato corto, poi piegare e pinzare.
+% Compilare prima libretto.tex.
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\begin{document}
+\includepdf[pages=-,booklet=true,landscape]{build/libretto.pdf}
+\end{document}

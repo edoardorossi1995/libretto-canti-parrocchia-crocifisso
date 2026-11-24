@@ -1,0 +1,25 @@
+{
+  // latexmk needs Perl, which is not installed: compile with pdflatex directly
+  "latex-workshop.latex.tools": [
+    { "name": "pdflatex", "command": "pdflatex",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "-output-directory=%OUTDIR%", "%DOC%"] },
+    { "name": "biber", "command": "biber", "args": ["--input-directory=%OUTDIR%", "--output-directory=%OUTDIR%", "%DOCFILE%"] },
+    { "name": "songidx", "command": "songidx", "args": ["%OUTDIR%/titoli.sxd", "%OUTDIR%/titoli.sbx"] }
+  ],
+  "latex-workshop.latex.recipes": [
+    { "name": "pdflatex", "tools": ["pdflatex"] },
+    { "name": "pdflatex + biber + pdflatex x2", "tools": ["pdflatex", "biber", "pdflatex", "pdflatex"] },
+    { "name": "libretto canti", "tools": ["pdflatex", "songidx", "pdflatex"] }
+  ],
+  "latex-workshop.latex.recipe.default": "lastUsed",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.message.warning.show": false,
+  "[latex]": {
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": false
+  },
+  "files.encoding": "utf8"
+}

@@ -1,0 +1,117 @@
+% Libretto dei canti della parrocchia (A5, solo testo)
+% Compilazione: pdflatex -> songidx -> pdflatex  (ricetta "libretto canti" in VS Code)
+% Per la stampa a libretto su A4 compilare poi stampa.tex
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{tgpagella}
+\usepackage{tgheros}            % sans-serif usato da songs per numeri e indice
+\usepackage[a5paper,top=1.4cm,bottom=1.6cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage[lyric]{songs}
+\usepackage[hidelinks]{hyperref}
+% I canti da ricontrollare sono elencati in DA_VERIFICARE.md
+
+% ---- Dati del frontespizio (da personalizzare) -------------------------
+\newcommand{\parrocchia}{Parrocchia di \dots}
+\newcommand{\titololibretto}{Canti per la liturgia}
+\newcommand{\edizione}{Edizione 2026}
+
+% ---- Impostazioni del pacchetto songs ----------------------------------
+\songcolumns{1}                 % una colonna: in A5 due sarebbero troppo strette
+\songpos{0}                     % i canti possono spezzarsi tra due pagine (niente buchi)
+\newindex{titoli}{titoli}       % indice alfabetico dei titoli (titoli.sxd -> titoli.sbx)
+\indexsongsas{titoli}{\thepage} % nell'indice: pagina d'inizio del canto, non il suo numero
+\renewcommand{\lyricfont}{\normalfont\large}
+\renewcommand{\stitlefont}{\rmfamily\bfseries\Large}
+
+% ---- Indice alfabetico: personalizzazioni --------------------------------
+% (copia di \SB@maketitleindex del pacchetto songs, con due modifiche)
+% 1) i titoli che iniziano con un numero vanno sotto "#" invece che sotto la cifra;
+% 2) i canti omonimi vanno su righe separate (una riga per canto) invece che
+%    su una riga sola con le pagine separate da virgola.
+% 3) \soloindice{ (testo)} nel titolo di un canto: il testo compare solo
+%    nell'indice alfabetico (serve a distinguere i canti omonimi), non nel titolo.
+\newif\ifnellindice
+\DeclareRobustCommand\soloindice[1]{\ifnellindice#1\fi}
+\pdfstringdefDisableCommands{\def\soloindice#1{}}
+\makeatletter
+\newcommand\idxlettera[1]{%
+  \ifnum0\ifnum`#1>47 \ifnum`#1<58 1\fi\fi>0 \#\else#1\fi}
+\def\SB@unarigaperpagina#1#2\\#3\SB@fine{%
+  \SB@ellipspread{\idxtitlefont\relax\ignorespaces#1\unskip}%
+                 {{\idxrefsfont\relax#2}}%
+  \ifx\relax#3\relax\else\SB@unarigaperpagina{#1}#3\SB@fine\fi}
+\renewcommand\SB@maketitleindex{%
+  \ifnum\idxheadwidth>\z@%
+    \renewenvironment{SB@lgidx}[1]{
+      \hbox{\SB@colorbox\idxbgcolor{\vbox{%
+        \hbox to\idxheadwidth{{\idxheadfont\relax\idxlettera{##1}}\hfil}%
+      }}}%
+      \nobreak\vskip3\p@\@plus2\p@\@minus2\p@\nointerlineskip%
+    }{\penalty-50\vskip5\p@\@plus5\p@\@minus4\p@}%
+  \else%
+    \renewenvironment{SB@lgidx}[1]{}{}%
+  \fi%
+  \renewenvironment{SB@smidx}[1]{}{}%
+  \renewcommand\idxentry[2]{\SB@unarigaperpagina{##1}##2\\\SB@fine}%
+  \renewcommand\idxaltentry[2]{%
+    \SB@ellipspread{\idxlyricfont\relax\ignorespaces##1\unskip}%
+                   {{\idxrefsfont\relax##2}}%
+  }%
+  \SB@displayindex%
+}
+\makeatother
+
+% Intestazione di sezione per momento liturgico (va anche nell'indice iniziale)
+\newcommand{\momento}[1]{%
+  \par\bigskip
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  {\centering\scshape\LARGE #1\par}%
+  \smallskip\hrule\medskip}
+
+\pagestyle{plain}
+
+\begin{document}
+
+% ---- Frontespizio ------------------------------------------------------
+\begin{titlepage}
+  \centering
+  \vspace*{3cm}
+  {\scshape\Large \parrocchia\par}
+  \vspace{2cm}
+  {\bfseries\Huge \titololibretto\par}
+  \vfill
+  {\large \edizione\par}
+\end{titlepage}
+
+% ---- Indice per momento liturgico --------------------------------------
+\renewcommand{\contentsname}{Indice}
+\tableofcontents
+\clearpage
+
+% ---- Canti (un file per momento liturgico) -----------------------------
+% Le sezioni ancora vuote hanno il modello commentato dentro il file.
+\input{canti/ingresso}
+\input{canti/signore_pieta}
+\input{canti/gloria}
+\input{canti/salmi}
+\input{canti/offertorio}
+\input{canti/pace}
+\input{canti/comunione}
+\input{canti/finale}
+\input{canti/mariani}
+\input{canti/adorazione}
+\input{canti/spirito}
+\input{canti/canoni}
+\input{canti/avvento}
+\input{canti/natale}
+\input{canti/quaresima_pasqua}
+\input{canti/altro}
+
+% ---- Indice alfabetico -------------------------------------------------
+\clearpage
+\phantomsection\addcontentsline{toc}{section}{Indice alfabetico}
+\nellindicetrue
+\showindex[2]{Indice alfabetico}{titoli}
+
+\end{document}
